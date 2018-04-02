@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+  <input type="text" formControlName="city" />
+  <input type="text" formControlName="street" />
+  <input type="text" formControlName="building" />
+  <input type="text" formControlName="flat" />
+</form>
+
+<button (click)="formToString()">addressForm formToString</button>
+<button (click)="disableAddressForm()">addressForm disable</button>
