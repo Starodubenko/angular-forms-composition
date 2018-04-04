@@ -3,7 +3,7 @@ import { FormControl, Validators, NgControl, NG_VALUE_ACCESSOR, NG_VALIDATORS, C
 import { omitBy, isEmpty, reduce, keys } from 'lodash-es';
 import { AbstractFormComponent } from './AbstractForm';
 
-export class AbstractFormGroupComponent extends AbstractFormComponent<FormArray> implements Validator {
+export class AbstractFormArrayComponent<E> extends AbstractFormComponent<FormArray,E> implements Validator {
 
   constructor(formFields) {
     super(FormArray, formFields);

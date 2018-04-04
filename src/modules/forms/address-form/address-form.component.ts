@@ -4,6 +4,7 @@ import { omitBy, isEmpty } from 'lodash-es';
 
 import { getFormProviders } from '../AbstractForm';
 import { AbstractFormGroupComponent } from '../AbstractFormGroup';
+import { IAddress } from './address.model';
 
 @Component({
   selector: 'address-form',
@@ -11,8 +12,7 @@ import { AbstractFormGroupComponent } from '../AbstractFormGroup';
   styleUrls: ['./address-form.component.css'],
   ...getFormProviders(AddressFormComponent)
 })
-export class AddressFormComponent extends AbstractFormGroupComponent {
-
+export class AddressFormComponent extends AbstractFormGroupComponent<IAddress> {
   constructor() {
     super({
       city: new FormControl('', Validators.required),
@@ -30,13 +30,5 @@ export class AddressFormComponent extends AbstractFormGroupComponent {
       console.log('building : ' + this.form.get('building').status);
       console.log('flat : ' + this.form.get('flat').status);
     })
-  }
-
-  disableAddressForm() {
-    this.form.disable()
-  }
-
-  formToString() {
-    console.log(this.form.value);
   }
 }

@@ -1,13 +1,19 @@
-export interface IAddress {
-    city: string;
-    street: string;
-    building: string;
-    flat: string;
+import { AbstractEntity } from "../AbstractEntity";
+
+export interface IUser {
+    firstName: string;
+    lastName: string;
+    middleName: string;
 }
 
-export class Address implements IAddress {
-    public city: string = '';
-    public street: string = '';
-    public building: string = '';
-    public flat: string = '';
+export class User extends AbstractEntity implements IUser {
+    public firstName: string = '';
+    public lastName: string = '';
+    public middleName: string = '';
+
+    constructor(data: IUser) {
+        this.firstName = data.firstName;
+        this.lastName = data.lastName;
+        this.middleName = data.middleName;
+    }
 }

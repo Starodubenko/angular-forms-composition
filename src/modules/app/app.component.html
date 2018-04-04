@@ -1,10 +1,8 @@
 <div style="text-align:center">
   <form [formGroup]="fg" class="">
+    <user-form formControlName="user"></user-form>
     <address-form formControlName="address"></address-form>
+    <!-- <pets-list-form formControlName="petsList"></pets-list-form> -->
   </form>
-  <!-- <div>{{'address' + ':' + fg.get('address').status}}</div> -->
-
-  <button (click)="formToString()">formToString</button>
-  <button (click)="toggleForm()">toggleForm</button>
 </div>
 

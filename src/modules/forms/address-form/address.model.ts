@@ -1,3 +1,5 @@
+import { AbstractEntity } from "../AbstractEntity";
+
 export interface IAddress {
     city: string;
     street: string;
@@ -5,9 +7,16 @@ export interface IAddress {
     flat: string;
 }
 
-export class Address implements IAddress {
+export class Address extends AbstractEntity implements IAddress {
     public city: string = '';
     public street: string = '';
     public building: string = '';
     public flat: string = '';
+
+    constructor(data: IAddress) {
+        this.city = data.city;
+        this.street = data.street;
+        this.building = data.building;
+        this.flat = data.flat;
+    }
 }

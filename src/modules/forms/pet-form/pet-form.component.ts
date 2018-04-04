@@ -4,20 +4,21 @@ import { omitBy, isEmpty } from 'lodash-es';
 
 import { getFormProviders } from '../AbstractForm';
 import { AbstractFormGroupComponent } from '../AbstractFormGroup';
-import { IUser } from './user-form.model';
+import { IPet } from './pet-form.model';
 
 @Component({
-  selector: 'user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.css'],
-  ...getFormProviders(UserFormComponent)
+  selector: 'pet-form',
+  templateUrl: './pet-form.component.html',
+  styleUrls: ['./pet-form.component.css'],
+  ...getFormProviders(PetFormComponent)
 })
-export class UserFormComponent extends AbstractFormGroupComponent<IUser> {
+export class PetFormComponent extends AbstractFormGroupComponent<IPet> {
+
   constructor() {
     super({
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      middleName: new FormControl('', Validators.required),
+      type: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      color: new FormControl('', Validators.required),
     })
 
     this.form.valueChanges.subscribe((value) => {
