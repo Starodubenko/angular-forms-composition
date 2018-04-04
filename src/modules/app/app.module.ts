@@ -14,7 +14,7 @@ import { PetsListFormComponent } from '../forms/pets-list-form/pets-list-form.co
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent
+    UserFormComponent,
     AddressFormComponent,
     PetFormComponent,
     PetsListFormComponent,

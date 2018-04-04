@@ -12,6 +12,7 @@ export class User extends AbstractEntity implements IUser {
     public middleName: string = '';
 
     constructor(data: IUser) {
+        super();
         this.firstName = data.firstName;
         this.lastName = data.lastName;
         this.middleName = data.middleName;

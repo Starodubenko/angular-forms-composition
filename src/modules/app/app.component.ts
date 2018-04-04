@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
       user: new User(data.user),
       address: new Address(data.address),
       petsList: new PetList(data.petList),
-    }})
+    })
 
     // this.fg.valueChanges.subscribe((value) => {
     //   console.log(this.fg);
