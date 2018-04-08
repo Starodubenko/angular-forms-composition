@@ -17,6 +17,17 @@ export const getFormProviders = (component) => ({
     ]
 })
 
+export const getFormStyles = (ownStyles) => {
+  const styles = [
+    '/Users/heng/Documents/ng-tests/nested-forms/src/modules/forms/AbstractForm.css',
+    ...ownStyles
+  ]
+  debugger
+  return {
+    styleUrls: styles
+  }
+};
+
 export class AbstractFormComponent<T extends AbstractControl, V extends AbstractEntity> implements OnInit, ControlValueAccessor {
   form: T;
 

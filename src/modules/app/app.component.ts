@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@ang
 import { Address } from '../forms/address-form/address.model';
 import { values } from 'lodash-es';
 import { User } from '../forms/user-form/user-form.model';
-import { PetList } from '../forms/pets-list-form/pets-list-form.model';
 import { Application } from './app.model';
 import { Pet } from '../forms/pet-form/pet-form.model';
 

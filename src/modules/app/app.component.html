@@ -1,15 +1,23 @@
-<div style="text-align:center">
-  <form [formGroup]="fg" class="">
+<form [formGroup]="fg" class="">
+  <div class="form">
+    <div>User data</div>
     <user-form formControlName="user"></user-form>
+  </div>
+  <div class="form">
+    <div>Address data</div>
     <address-form formControlName="address"></address-form>
-    <div formArrayName="petList">
-      <pet-form *ngFor="let pet of fg.get('petList').controls; let i = index"
-                [formControlName]="i">
-      </pet-form>
-    </div>
-  </form>
-
-  <button (click)="getStatus()">app form status</button>
-  <button (click)="getValue()">app form value</button>
-</div>
+  </div>
+  <div class="list form-list" 
+       formArrayName="petList">
+      <div>Pet list</div>
+      <div class="form" 
+           *ngFor="let pet of fg.get('petList').controls; let i = index">
+          <div>Pet data</div>
+          <pet-form [formControlName]="i"></pet-form>
+      </div>
+  </div>
+  
+</form>
+<button (click)="getStatus()">app form status</button>
+<button (click)="getValue()">app form value</button>
 

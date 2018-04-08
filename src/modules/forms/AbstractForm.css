@@ -1,0 +1,16 @@
+:host {
+    
+}
+
+:host > form {
+    border: 1px solid rgb(233, 233, 233);
+    padding: 2px;
+}
+:host .ng-valid.ng-touched {
+    border: 1px solid rgb(81, 255, 0);
+}
+
+:host .ng-invalid.ng-touched {
+    border: 1px solid rgb(255, 0, 0);
+}
+
