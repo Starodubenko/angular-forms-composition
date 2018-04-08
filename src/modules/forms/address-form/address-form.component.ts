@@ -23,12 +23,5 @@ export class AddressFormComponent extends AbstractFormGroupComponent<IAddress> {
       building: new FormControl('', Validators.required),
       flat: new FormControl('', Validators.required),
     })
-
-    this.form.valueChanges.subscribe((value) => {
-      console.log('city : ' + this.form.get('city').status);
-      console.log('street : ' + this.form.get('street').status);
-      console.log('building : ' + this.form.get('building').status);
-      console.log('flat : ' + this.form.get('flat').status);
-    })
   }
 }

@@ -13,10 +13,6 @@ export class Address extends AbstractEntity implements IAddress {
     public building: string = '';
     public flat: string = '';
 
-    constructor() {
-    
-    }
-
     constructor(data: IAddress) {
         super();
         this.city = data.city;

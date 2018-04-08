@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { Address } from '../forms/address-form/address.model';
 import { values } from 'lodash-es';
 import { User } from '../forms/user-form/user-form.model';
 import { PetList } from '../forms/pets-list-form/pets-list-form.model';
 import { Application } from './app.model';
+import { Pet } from '../forms/pet-form/pet-form.model';
 
 const data = {
   user: {
@@ -40,19 +41,26 @@ const data = {
 export class AppComponent implements OnInit {
   title = 'app';
   fg: FormGroup;
+  petFormsArray = new FormArray([]);
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(){
-    debugger
+    this.petFormsArray = this.formBuilder.array(data.petList);
+
     this.fg = this.formBuilder.group({
       user: new User(data.user),
       address: new Address(data.address),
-      petsList: new PetList(data.petList),
+      petList: this.formBuilder.array(data.petList),
     })
+  }
 
-    // this.fg.valueChanges.subscribe((value) => {
-    //   console.log(this.fg);
-    // })
+  getStatus(){
+    console.log(`AppForm status: ${this.fg.status}`);
+  }
+
+  getValue(){
+    console.log(`AppForm value:`);
+    console.log(this.fg.value);
   }
 }

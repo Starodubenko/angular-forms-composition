@@ -2,7 +2,14 @@
   <form [formGroup]="fg" class="">
     <user-form formControlName="user"></user-form>
     <address-form formControlName="address"></address-form>
-    <!-- <pets-list-form formControlName="petsList"></pets-list-form> -->
+    <div formArrayName="petList">
+      <pet-form *ngFor="let pet of fg.get('petList').controls; let i = index"
+                [formControlName]="i">
+      </pet-form>
+    </div>
   </form>
+
+  <button (click)="getStatus()">app form status</button>
+  <button (click)="getValue()">app form value</button>
 </div>
 

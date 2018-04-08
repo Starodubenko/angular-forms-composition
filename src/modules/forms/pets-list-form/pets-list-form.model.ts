@@ -5,7 +5,7 @@ export interface IPetList {
     list: IPetList[];
 }
 
-export class PetList extends Array implements IPetList {
+export class PetList extends Array {
     constructor(data: IPet[]) {
         super();
         this.push(...data);
