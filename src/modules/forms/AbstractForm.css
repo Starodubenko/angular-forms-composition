@@ -6,11 +6,11 @@
     border: 1px solid rgb(233, 233, 233);
     padding: 2px;
 }
-form.ng-valid.ng-touched, [formControlName].ng-valid.ng-touched {
+form.ng-valid.ng-touched, [formcontrolname].ng-valid.ng-touched, [formarrayname].ng-valid.ng-touched {
     border: 1px solid rgb(81, 255, 0);
 }
 
-form.ng-invalid.ng-touched {
+form.ng-invalid.ng-touched, [formcontrolname].ng-invalid.ng-touched, [formarrayname].ng-invalid.ng-touched {
     border: 1px solid rgb(255, 0, 0);
 }
 

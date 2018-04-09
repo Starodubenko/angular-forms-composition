@@ -3,6 +3,7 @@ import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import {Address} from '../forms/address-form/address.model';
 import {values} from 'lodash-es';
 import {User} from '../forms/user-form/user-form.model';
+import { Pet } from '../forms/pet-form/pet-form.model';
 
 const data = {
   user: {
@@ -37,7 +38,7 @@ const data = {
 })
 export class AppComponent implements OnInit {
   fg: FormGroup;
-  petFormsArray = new FormArray([]);
+  petFormsArray: FormArray;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -47,8 +48,19 @@ export class AppComponent implements OnInit {
     this.fg = this.formBuilder.group({
       user: new User(data.user),
       address: new Address(data.address),
-      petList: this.formBuilder.array(data.petList),
+      petList: this.petFormsArray,
     });
+  }
+
+  addPet(){
+    this.petFormsArray.push(
+      this.formBuilder.control(new Pet())
+    )
+  }
+
+  removePet(index){
+    debugger
+    this.petFormsArray.removeAt(index);
   }
 
   getStatus() {

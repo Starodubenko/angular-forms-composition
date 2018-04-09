@@ -11,10 +11,12 @@ export class Pet extends AbstractEntity implements IPet {
     public name: string = '';
     public color: string = '';
 
-    constructor(data: IPet) {
+    constructor(data?: IPet) {
         super();
-        this.type = data.type;
-        this.name = data.name;
-        this.color = data.color;
+        if (data) {
+            this.type = data.type;
+            this.name = data.name;
+            this.color = data.color;
+        }
     }
 }

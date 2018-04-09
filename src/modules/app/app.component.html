@@ -13,11 +13,12 @@
       <div class="form" 
            *ngFor="let pet of fg.get('petList').controls; let i = index">
           <div>Pet data</div>
-          <pet-form [formControlName]="i"></pet-form>
+          <pet-form [formControlName]="i" (onRemove)="removePet(i)"></pet-form>
       </div>
   </div>
   
 </form>
 <button (click)="getStatus()">app form status</button>
 <button (click)="getValue()">app form value</button>
+<button (click)="addPet()">add new pet</button>
 

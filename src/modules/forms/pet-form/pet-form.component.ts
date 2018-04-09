@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {isEmpty, omitBy} from 'lodash-es';
 
@@ -14,16 +14,17 @@ import {IPet} from './pet-form.model';
 })
 export class PetFormComponent extends AbstractFormGroupComponent<IPet> {
 
-  constructor() {
+  @Output() onRemove = new EventEmitter();
 
+  constructor() {
     super({
       type: new FormControl('', Validators.required),
       name: new FormControl('', Validators.required),
       color: new FormControl('', Validators.required),
     });
+  }
 
-    this.form.valueChanges.subscribe((value) => {
-
-    });
+  remove() {
+    this.onRemove.emit(null);
   }
 }
