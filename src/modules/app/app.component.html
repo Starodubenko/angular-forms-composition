@@ -16,9 +16,15 @@
           <pet-form [formControlName]="i" (onRemove)="removePet(i)"></pet-form>
       </div>
   </div>
-  
 </form>
-<button (click)="getStatus()">app form status</button>
-<button (click)="getValue()">app form value</button>
-<button (click)="addPet()">add new pet</button>
+<div class="actions">
+    <button (click)="getStatus()">app form status</button>
+    <button (click)="getValue()">app form value</button>
+    <button (click)="addPet()">add new pet</button>
+    <button (click)="disableAppForm()">disable form</button>
+    <button (click)="disableUserForm()">disable user form</button>
+    <button (click)="disableAddressForm()">disable adress form</button>
+    <button (click)="disablePetListForm()">disable pet list form</button>
+    <button (click)="petUpdateValueAndValidity()">disable pet list form validity</button>
+</div>
 

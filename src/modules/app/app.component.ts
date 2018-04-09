@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import {Address} from '../forms/address-form/address.model';
 import {values} from 'lodash-es';
 import {User} from '../forms/user-form/user-form.model';
@@ -38,29 +38,33 @@ const data = {
 })
 export class AppComponent implements OnInit {
   fg: FormGroup;
-  petFormsArray: FormArray;
+  user: FormControl;
+  address: FormControl;
+  petList: FormArray;
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.petFormsArray = this.formBuilder.array(data.petList);
+    this.user = this.formBuilder.control(new User(data.user));
+    this.address = this.formBuilder.control(new Address(data.address));
+    this.petList = this.formBuilder.array(data.petList);
 
     this.fg = this.formBuilder.group({
-      user: new User(data.user),
-      address: new Address(data.address),
-      petList: this.petFormsArray,
+      user: this.user,
+      address: this.address,
+      petList: this.petList,
     });
   }
 
   addPet(){
-    this.petFormsArray.push(
+    this.petList.push(
       this.formBuilder.control(new Pet())
     )
   }
 
   removePet(index){
     debugger
-    this.petFormsArray.removeAt(index);
+    this.petList.removeAt(index);
   }
 
   getStatus() {
@@ -70,5 +74,23 @@ export class AppComponent implements OnInit {
   getValue() {
     console.log(`AppForm value:`);
     console.log(this.fg.value);
+  }
+
+  disableAppForm() {
+    this.fg.enabled ? this.fg.disable() : this.fg.enable();
+  }
+  disableUserForm() {
+    this.user.enabled ? this.user.disable() : this.user.enable();
+    this.user.updateValueAndValidity();
+  }
+  disableAddressForm() {
+    this.address.enabled ? this.address.disable() : this.address.enable();
+    this.address.updateValueAndValidity();
+  }
+  disablePetListForm() {
+    this.petList.enabled ? this.petList.disable() : this.petList.enable();
+  }
+  petUpdateValueAndValidity() {
+    this.petList.updateValueAndValidity();
   }
 }

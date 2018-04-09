@@ -61,6 +61,7 @@ export class AbstractFormComponent<T extends AbstractControl, V extends Abstract
     isDisabled ?
       this.form.disable({onlySelf: true, emitEvent: false}) :
       this.form.enable({onlySelf: true, emitEvent: false});
+    this.form.updateValueAndValidity(); //to make its parrent run revalidatation.
   }
 
   handleTouch() {
