@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddressFormComponent } from '../forms/address-form/address-form.component';
 import { UserFormComponent } from '../forms/user-form/user-form.component';
 import { PetFormComponent } from '../forms/pet-form/pet-form.component';
-import { PetsListFormComponent } from '../forms/pets-list-form/pets-list-form.component';
 
 
 @NgModule({
@@ -17,7 +16,6 @@ import { PetsListFormComponent } from '../forms/pets-list-form/pets-list-form.co
     UserFormComponent,
     AddressFormComponent,
     PetFormComponent,
-    PetsListFormComponent,
   ],
   imports: [
     BrowserModule,

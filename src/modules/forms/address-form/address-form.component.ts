@@ -1,10 +1,10 @@
-import { Component, OnInit, forwardRef, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators, NgControl, NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlValueAccessor, AbstractControl, Validator } from '@angular/forms';
-import { omitBy, isEmpty } from 'lodash-es';
+import {Component} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+import {isEmpty, omitBy} from 'lodash-es';
 
-import { getFormProviders } from '../AbstractForm';
-import { AbstractFormGroupComponent } from '../AbstractFormGroup';
-import { IAddress } from './address.model';
+import {getFormProviders} from '../AbstractForm';
+import {AbstractFormGroupComponent} from '../AbstractFormGroup';
+import {IAddress} from './address.model';
 
 @Component({
   selector: 'address-form',
@@ -22,6 +22,6 @@ export class AddressFormComponent extends AbstractFormGroupComponent<IAddress> {
       }, Validators.required),
       building: new FormControl('', Validators.required),
       flat: new FormControl('', Validators.required),
-    })
+    });
   }
 }
