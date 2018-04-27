@@ -4,6 +4,7 @@ import {Address} from '../forms/address-form/address.model';
 import {values} from 'lodash-es';
 import {User} from '../forms/user-form/user-form.model';
 import { Pet } from '../forms/pet-form/pet-form.model';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 const data = {
   user: {
@@ -21,12 +22,12 @@ const data = {
     {
       type: 'dog',
       name: 'sharick',
-      color: 'white',
+      color: '',
     },
     {
       type: 'cat',
       name: 'barsick',
-      color: 'black',
+      color: '',
     }
   ]
 };
@@ -41,6 +42,8 @@ export class AppComponent implements OnInit {
   user: FormControl;
   address: FormControl;
   petList: FormArray;
+
+  shouldUpdate = new BehaviorSubject(true);
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -59,11 +62,10 @@ export class AppComponent implements OnInit {
   addPet(){
     this.petList.push(
       this.formBuilder.control(new Pet())
-    )
+    );
   }
 
   removePet(index){
-    debugger
     this.petList.removeAt(index);
   }
 
@@ -92,5 +94,8 @@ export class AppComponent implements OnInit {
   }
   petUpdateValueAndValidity() {
     this.petList.updateValueAndValidity();
+  }
+  togglePetFormUpdate() {
+    this.shouldUpdate.next(true);
   }
 }

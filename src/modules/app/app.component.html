@@ -7,13 +7,13 @@
     <div>Address data</div>
     <address-form formControlName="address"></address-form>
   </div>
-  <div class="list form-list" 
+  <div class="list form-list"
        formArrayName="petList">
       <div>Pet list</div>
-      <div class="form" 
+      <div class="form"
            *ngFor="let pet of fg.get('petList').controls; let i = index">
           <div>Pet data</div>
-          <pet-form [formControlName]="i" (onRemove)="removePet(i)"></pet-form>
+          <pet-form [shouldUpdate]="shouldUpdate" [formControlName]="i" (onRemove)="removePet(i)"></pet-form>
       </div>
   </div>
 </form>
@@ -26,5 +26,6 @@
     <button (click)="disableAddressForm()">disable adress form</button>
     <button (click)="disablePetListForm()">disable pet list form</button>
     <button (click)="petUpdateValueAndValidity()">disable pet list form validity</button>
+    <button (click)="togglePetFormUpdate()">toggle petForm update</button>
 </div>
 

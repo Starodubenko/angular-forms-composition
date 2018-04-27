@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddressFormComponent } from '../forms/address-form/address-form.component';
 import { UserFormComponent } from '../forms/user-form/user-form.component';
 import { PetFormComponent } from '../forms/pet-form/pet-form.component';
+import {ShouldUpdateDirective} from '../forms/shouldUpdate.directive';
 
 
 @NgModule({
@@ -16,11 +17,12 @@ import { PetFormComponent } from '../forms/pet-form/pet-form.component';
     UserFormComponent,
     AddressFormComponent,
     PetFormComponent,
+    ShouldUpdateDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

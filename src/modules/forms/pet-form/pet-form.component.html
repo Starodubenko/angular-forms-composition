@@ -1,6 +1,14 @@
-<form [formGroup]="form">
+<form [formGroup]="form" *ngIf="!isFullForm(); else inlineRow">
   <input type="text" formControlName="type" (blur)="handleTouch()" />
   <input type="text" formControlName="name" (blur)="handleTouch()" />
   <input type="text" formControlName="color" (blur)="handleTouch()" />
   <button type="button" (click)="remove()" [disabled]=form.disabled>remove</button>
 </form>
+
+<ng-template #inlineRow>
+  <div>
+    <span>{{type.value}}</span>
+    <span>{{name.value}}</span>
+    <span>{{color.value}}</span>
+  </div>
+</ng-template>
